@@ -67,4 +67,24 @@ js_面向对象(基础)
 
 
 
+ 要创建访问器属性  我们一般使用两个非标准方法
+       
+      __defineGetter__   读值
+      
+       __defineSetter__  写值
+       
+			book.__defineGetter__("age",function(){
+				return this._age;
+			});
+			book.__defineSetter__("age",function(n){
+
+						 if(n>18){
+
+					this._age=n;
+					this.num=n+10;
+					}
+			});
+			book.age=1000;
+			console.log(book.num);   输出    1010
+
 
