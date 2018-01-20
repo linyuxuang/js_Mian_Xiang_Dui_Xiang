@@ -10,7 +10,7 @@ js_面向对象(基础)
             enumerable   true可以 for-in 循环属性   false 不能  (默认true)
             writable        true可以修改属性   false不能修改属性  (默认true)
             value    读取属性值时,从这个位置读, 写入属性值时 ,保存新值在这个位置  (默认undefined)
-
+            
 
 
                 Object.defineProperty() 要修改属性默认属性 ,必须用这个方法
@@ -30,8 +30,37 @@ js_面向对象(基础)
 
                     obj.name="kkk";
                     console.log(obj.name);    输出 ooop
+		    
+
+访问器属性 
+
+		get 读取属性时调用函数， （默认值 undefined）
+
+		set  写入属性时调用函数   （默认值 undefined）
 
 
+
+               
+		var book={
+			_age:25,
+			num:9
+		};
+		Object.defineProperty(book,"age",{
+			get:function(){
+				return this.age;
+			},
+			set:function(n){
+				
+			 if(n>18){
+			 	
+			 	this._age=n;
+			 	this.name=n+10;
+			 }
+			}
+			
+		});
+		book.age=9999;
+		console.log(book.num)  输出 10009
 
 
 
